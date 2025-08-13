@@ -8,33 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 27% 4%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 224 33% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 224 33% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 263 70% 50%;
     --primary-foreground: 210 40% 98%;
+    --primary-glow: 263 70% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 27% 12%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 27% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 142 76% 50%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 27% 18%;
+    --input: 220 27% 18%;
+    --ring: 263 70% 50%;
+
+    /* Gaming gradients */
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-neon: linear-gradient(90deg, hsl(var(--primary-glow)), hsl(var(--accent-glow)));
+    --gradient-dark: linear-gradient(180deg, hsl(var(--background)), hsl(220 27% 2%));
+
+    /* Gaming shadows */
+    --shadow-neon: 0 0 30px hsl(var(--primary) / 0.5);
+    --shadow-accent: 0 0 30px hsl(var(--accent) / 0.5);
+    --shadow-card: 0 10px 40px -10px hsl(220 27% 2% / 0.8);
+
+    /* Animations */
+    --transition-gaming: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
@@ -100,6 +115,45 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .gradient-gaming {
+    background: var(--gradient-gaming);
+  }
+  
+  .gradient-neon {
+    background: var(--gradient-neon);
+  }
+  
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+  
+  .shadow-neon {
+    box-shadow: var(--shadow-neon);
+  }
+  
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .transition-gaming {
+    transition: var(--transition-gaming);
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.8);
+  }
+  
+  .neon-border {
+    border: 1px solid hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.3), inset 0 0 15px hsl(var(--primary) / 0.1);
   }
 }
