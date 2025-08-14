@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Gamepad2, MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-gaming.webp";
 
 const HeroSection = () => {
@@ -51,22 +52,30 @@ const HeroSection = () => {
               <Phone className="w-5 h-5" />
               Entre em Contato
             </Button>
-            <Button variant="neon" size="lg" className="text-lg px-8 py-4">
-              Nossos Serviços
-            </Button>
+            <Link to="/novos-usados">
+              <Button variant="neon" size="lg" className="text-lg px-8 py-4">
+                Nossos Serviços
+              </Button>
+            </Link>
           </div>
 
           {/* Features badges */}
           <div className="flex flex-wrap justify-center gap-4 mt-12 text-sm">
-            <div className="neon-border rounded-full px-4 py-2 bg-card/50 backdrop-blur-sm">
-              ✨ Novos & Usados
-            </div>
-            <div className="neon-border rounded-full px-4 py-2 bg-card/50 backdrop-blur-sm">
-              🔧 Manutenção Especializada
-            </div>
-            <div className="neon-border rounded-full px-4 py-2 bg-card/50 backdrop-blur-sm">
-              🎮 Locação de Consoles
-            </div>
+            <Link to="/novos-usados">
+              <div className="neon-border rounded-full px-4 py-2 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-gaming cursor-pointer">
+                ✨ Novos & Usados
+              </div>
+            </Link>
+            <Link to="/manutencao">
+              <div className="neon-border rounded-full px-4 py-2 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-gaming cursor-pointer">
+                🔧 Manutenção Especializada
+              </div>
+            </Link>
+            <Link to="/locacao">
+              <div className="neon-border rounded-full px-4 py-2 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-gaming cursor-pointer">
+                🎮 Locação de Consoles
+              </div>
+            </Link>
           </div>
         </div>
       </div>

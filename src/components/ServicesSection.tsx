@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShoppingBag, Wrench, Calendar, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import storeImage from "@/assets/store-showcase.webp";
 import repairImage from "@/assets/repair-service.webp";
 import rentalImage from "@/assets/rental-service.webp";
@@ -13,7 +14,8 @@ const ServicesSection = () => {
       description: "Consoles e acessórios novos e usados com garantia e melhor preço da região",
       image: storeImage,
       features: ["PlayStation 5", "Xbox Series X/S", "Nintendo Switch", "Acessórios originais", "Jogos novos e usados"],
-      cta: "Ver Catálogo"
+      cta: "Ver Catálogo",
+      link: "/novos-usados"
     },
     {
       icon: <Wrench className="w-8 h-8 text-accent" />,
@@ -21,7 +23,8 @@ const ServicesSection = () => {
       description: "Assistência técnica especializada com técnicos certificados e peças originais",
       image: repairImage,
       features: ["Reparo de controles", "Limpeza interna", "Troca de peças", "Diagnóstico gratuito", "Garantia do serviço"],
-      cta: "Solicitar Orçamento"
+      cta: "Solicitar Orçamento",
+      link: "/manutencao"
     },
     {
       icon: <Calendar className="w-8 h-8 text-primary-glow" />,
@@ -29,7 +32,8 @@ const ServicesSection = () => {
       description: "Alugue consoles e acessórios para festas, eventos ou diversão em casa",
       image: rentalImage,
       features: ["Diárias e pacotes", "Setup completo", "Jogos inclusos", "Entrega e retirada", "Suporte técnico"],
-      cta: "Fazer Reserva"
+      cta: "Fazer Reserva",
+      link: "/locacao"
     }
   ];
 
@@ -84,9 +88,11 @@ const ServicesSection = () => {
                 </ul>
 
                 {/* CTA Button */}
-                <Button variant="outline" className="w-full group-hover:shadow-accent">
-                  {service.cta}
-                </Button>
+                <Link to={service.link}>
+                  <Button variant="outline" className="w-full group-hover:shadow-accent">
+                    {service.cta}
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
